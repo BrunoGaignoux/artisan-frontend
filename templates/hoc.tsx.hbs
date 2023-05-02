@@ -1,0 +1,40 @@
+import React, { ReactElement, useCallback, useState } from 'react';
+import { With{{> hocName }}Type } from '{{> typePath }}';
+
+const with{{> hocName }} = (
+  Component: new () => React.Component,
+  openAction: string,
+): ((props: With{{> hocName }}Type) => ReactElement) => {
+  // eslint-disable-next-line react/display-name
+  return (props: With{{> hocName }}Type): ReactElement => {
+    const [open, setOpen] = useState(false);
+
+    const onTargetProp = useCallback(
+      (e: any) => {
+        setOpen(!open);
+        props?.onChange(e);
+      },
+      [props],
+    );
+
+    const onModalClose = useCallback(() => {
+      setOpen(false);
+      document.documentElement.style.overflowY = 'auto';
+      document.body.classList.remove('no-scroll');
+    }, []);
+
+    return (
+      <>
+        {open && (
+          < {{> hocName }}
+            isOpen={open}
+            onClose={onModalClose}
+          />
+        )}
+        <Component {...props} {...{ [openAction]: onTargetProp }} />
+      </>
+    );
+  };
+};
+
+export { with{{> hocName }} };

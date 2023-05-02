@@ -1,0 +1,7 @@
+import { useState, TouchEvent } from 'react';
+
+export const use{{> hookName }} = (): Record<string, any> => {
+  const [state, set] = useState(0);
+
+  return { state, set };
+};

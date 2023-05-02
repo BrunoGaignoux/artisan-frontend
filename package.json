@@ -1,23 +1,25 @@
 {
-  "name": "bolttech-artisan-frontend-generator",
+  "name": "artisan-frontend",
   "version": "1.0.0",
   "description": "Artisan frontend generator",
-  "main": "plopfile.js",
+  "main": "artisan.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "plop --plopfile ./artisan.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/gofrank/artisan-frontend-generator.git"
+    "url": "git@github.com:BrunoGaignoux/artisan-frontend.git"
   },
   "keywords": [
     "Artisan",
     "Bolttech",
-    "Generator"
+    "Generator",
+    "React"
   ],
   "author": "Bolttech",
-  "license": "MIT",
-  "homepage": "https://bitbucket.org/gofrank/artisan-frontend-generator#readme",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/BrunoGaignoux/artisan-frontend#readme",
   "dependencies": {
     "plop": "^3.1.2"
   }

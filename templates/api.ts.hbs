@@ -1,0 +1,21 @@
+import api from 'axios';
+import { NextApiRequest, NextApiResponse } from 'next';
+
+const {{> apiName }} = async (
+  req: NextApiRequest,
+  res: NextApiResponse,
+): Promise<void> => {
+  const { query = {}, headers } = req;
+
+  try {
+    const { data } = await api.get('some-url-here', {
+      params: query,
+    });
+
+    return res.status(200).send(data);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    return res.status(500).send(err);
+  }
+};
+export default {{> apiName }};

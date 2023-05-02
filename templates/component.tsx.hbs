@@ -1,0 +1,26 @@
+import React, { MouseEvent, ReactElement, useEffect, useState } from 'react';
+import { {{> componentName }}Type } from '{{> typePath }}/{{> componentName }}.types';
+import * as S from '{{> componentPath }}/{{> componentName }}/{{> componentName }}.styles';
+
+const {{> componentName }} = (props: {{> componentName }}Type): ReactElement => {
+  const [state, set] = useState();
+
+  const handleClick = (e: MouseEvent<HTMLInputElement>): void => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    set(!state);
+  };
+
+  useEffect(() => {
+    set(!!state);
+  }, []);
+
+  return (
+    <S.Container onClick={handleClick}>
+      {props.children}
+    </S.Container>
+  );
+};
+
+export default {{> componentName }};
