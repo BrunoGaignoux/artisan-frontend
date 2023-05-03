@@ -5,7 +5,7 @@
   "main": "artisan.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "plop --plopfile ./artisan.js"
+    "artisan": "plop --plopfile ./artisan.js"
   },
   "repository": {
     "type": "git",
