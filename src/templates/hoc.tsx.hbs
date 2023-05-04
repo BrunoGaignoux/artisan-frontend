@@ -1,12 +1,12 @@
 import React, { ReactElement, useCallback, useState } from 'react';
-import { With{{> hocName }}Type } from '{{> typePath }}';
+import { With{{> name }}Type } from '{{> typePath }}';
 
-const with{{> hocName }} = (
+const with{{> name }} = (
   Component: new () => React.Component,
   openAction: string,
-): ((props: With{{> hocName }}Type) => ReactElement) => {
+): ((props: With{{> name }}Type) => ReactElement) => {
   // eslint-disable-next-line react/display-name
-  return (props: With{{> hocName }}Type): ReactElement => {
+  return (props: With{{> name }}Type): ReactElement => {
     const [open, setOpen] = useState(false);
 
     const onTargetProp = useCallback(
@@ -26,7 +26,7 @@ const with{{> hocName }} = (
     return (
       <>
         {open && (
-          < {{> hocName }}
+          < {{> name }}
             isOpen={open}
             onClose={onModalClose}
           />
@@ -37,4 +37,4 @@ const with{{> hocName }} = (
   };
 };
 
-export { with{{> hocName }} };
+export { with{{> name }} };

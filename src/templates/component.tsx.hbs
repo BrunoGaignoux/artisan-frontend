@@ -1,8 +1,8 @@
 import React, { MouseEvent, ReactElement, useEffect, useState } from 'react';
-import { {{> componentName }}Type } from '{{> typePath }}/{{> componentName }}.types';
-import * as S from '{{> componentPath }}/{{> componentName }}/{{> componentName }}.styles';
+import { {{> name }}Type } from '{{> typePath }}/{{> name }}.types';
+import * as S from '{{> componentPath }}/{{> name }}/{{> name }}.styles';
 
-const {{> componentName }} = (props: {{> componentName }}Type): ReactElement => {
+const {{> name }} = (props: {{> name }}Type): ReactElement => {
   const [state, set] = useState();
 
   const handleClick = (e: MouseEvent<HTMLInputElement>): void => {
@@ -23,4 +23,4 @@ const {{> componentName }} = (props: {{> componentName }}Type): ReactElement => 
   );
 };
 
-export default {{> componentName }};
+export default {{> name }};

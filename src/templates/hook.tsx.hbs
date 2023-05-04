@@ -1,6 +1,7 @@
 import { useState, TouchEvent } from 'react';
+import { I{{> name }} } from '{{> typePath }}';
 
-export const use{{> hookName }} = (): Record<string, any> => {
+export const use{{> name }} = (): I{{> name }} => {
   const [state, set] = useState(0);
 
   return { state, set };

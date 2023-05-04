@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "noEmit": true,
+        "target": "ES6",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "Node",
+        "outDir": "./lib",
+        "typeRoots": [
+            "./node_modules/@types",
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@modules/*": [
+                "./src/modules/*"
+            ],
+            "@types/*": [
+                "./src/types/*"
+            ],
+            "@generators/*": [
+                "./src/modules/generators/*"
+            ],
+        },
+    },
+    "lib": [
+        "ES2020"
+    ],
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "./node_modules",
+    ]
+}

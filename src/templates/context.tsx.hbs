@@ -1,0 +1,44 @@
+import {
+  createContext,
+  ReactElement,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
+import { I{{> name }} } from '{{> typePath }}';
+import { PropsWithChildren } from 'react';
+
+const {{> name }}Context = createContext<I{{> name }}>({
+  // todo: your props declared here
+});
+
+{{> name }}Context.displayName = '{{> name }}Context';
+let context: I{{> name }};
+
+const {{> name }}Provider: PropsWithChildren = ({ children }): ReactElement => {
+  const [value, set] = useState();
+
+  const contextValue = useMemo(
+    () => ({
+      value,
+      set,
+    }),
+    [value],
+  );
+
+  return (
+    < {{> name }}Context.Provider value={contextValue}>{children}</ {{> name }}Context.Provider>
+  );
+};
+
+const use{{> name }}Context = (): I{{> name }}Context => {
+  context = useContext({{> name }}Context);
+  if (typeof context === 'undefined' || context === undefined) {
+    throw new Error(`use{{> name }}Context must be used within a {{> name }}Provider`);
+  }
+
+  return context;
+};
+
+export { {{> name }}Context, {{> name }}Provider, use{{> name }}Context };
+
