@@ -15,7 +15,7 @@ import {
 export default (
   /** @type {import('plop').NodePlopAPI} */
   plop,
-) => {
+): void => {
   /* set prompts for scripts */
   prompts(plop);
   /* set helpers for scripts */
