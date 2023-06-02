@@ -1,6 +1,6 @@
 import { NodePlopAPI } from 'plop';
 
-export default (plop: NodePlopAPI) => {
+export default (plop: NodePlopAPI, typePath?: string, hookPath?: string) => {
   plop.setGenerator('hook', {
     description: 'Create your react hook',
     prompts: [

@@ -1,6 +1,6 @@
 import { NodePlopAPI } from 'plop';
 
-export default (plop: NodePlopAPI) => {
+export default (plop: NodePlopAPI, path?: string) => {
   plop.setGenerator('component styles', {
     description: 'Create your react component styles',
     prompts: [

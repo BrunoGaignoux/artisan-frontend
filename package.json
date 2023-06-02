@@ -1,12 +1,14 @@
 {
   "private": true,
-  "name": "@frontend-artisan/react",
-  "version": "0.0.1",
+  "name": "@gaignoux/frontend-artisan",
+  "version": "0.0.0",
   "description": "Artisan frontend generator base on plop",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./dist/artisan.js",
+  "module": "./dist/artisan.js",
+  "types": "./dist/index.d.ts",
+  "packageScope": "@gaignoux",
   "scripts": {
-    "artisan:test": "plop --plopfile src/artisan.ts",
+    "artisan:test": "npm run build ; plop --plopfile ./dist/artisan.js",
     "lint": "eslint --ext .js,.ts . --fix",
     "type-check": "tsc --noEmit",
     "build": "tsc",
@@ -20,6 +22,9 @@
     "publish:patch": "npm version patch && npm publish",
     "publish:minor": "npm version minor && npm publish",
     "publish:major": "npm version major && npm publish"
+  },
+  "bin": {
+    "generate": "plop --plopfile ./dist/artisan.js"
   },
   "repository": {
     "type": "git",
@@ -57,9 +62,14 @@
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4",
     "prettier": "^2.8.8",
-    "ts-node": "^10.9.1"
+    "cross-env": "^6.0.3",
+    "ts-node": "^10.9.1",
+    "ts-loader": "^9.2.8",
+    "tsc-alias": "^1.6.6",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "webpack": "^5.72.1"
   },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ]
 }

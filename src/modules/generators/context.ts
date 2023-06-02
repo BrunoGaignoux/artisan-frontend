@@ -1,6 +1,6 @@
 import { NodePlopAPI } from 'plop';
 
-export default (plop: NodePlopAPI) => {
+export default (plop: NodePlopAPI, typePath?: string, contextPath?: string) => {
   plop.setGenerator('context', {
     description: 'Create your react context',
     prompts: [

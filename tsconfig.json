@@ -5,12 +5,11 @@
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
-        "noEmit": true,
         "target": "ES6",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "Node",
-        "outDir": "./lib",
+        "outDir": "./dist",
         "typeRoots": [
             "./node_modules/@types",
         ],
@@ -19,8 +18,8 @@
             "@modules/*": [
                 "./src/modules/*"
             ],
-            "@types/*": [
-                "./src/types/*"
+            "@base/*": [
+                "./src/*"
             ],
             "@generators/*": [
                 "./src/modules/generators/*"

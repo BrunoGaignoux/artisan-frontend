@@ -18,20 +18,66 @@ Initially the idea was to help new and even more experienced developers to speed
 First you will need to install the tool in your project of choice, like this:
 
 ```shell
-$    npm i @frontend-artisan/react
+$    npm i --save-dev @gaignoux/frontend-artisan plop
 ```
 
 * Configuration
+
+Create a artisan.js at the root of your project
+
+```js
+module.exports = function (plop) {
+	// Here you will load artisan to plop instance
+  plop.load('frontend-artisan');
+};
+```
 
 Now you will need to put into your `package.json` file, a script to run every time you need. Like this: 
 
 ```json
 {
   "scripts": {
-    "artisan": ""
+    "artisan": "plop --plofile artisan.js"
   }
 } 
 ```
+
+You can set your own paths as the default setting, so the craftsman doesn't ask you every time he wants to create a new file. For example:
+
+```js
+module.exports = function (plop) {
+  // Here you will load artisan to plop instance
+  plop.load('frontend-artisan', {
+    components: './src/components', // your location for components
+    contexts: './src/contexts', // your location for contexts
+    hocs: './src/hocs', // your location for hocs
+    hooks: './src/hooks', // your location for hooks
+    interfaces: './src/interfaces', // your location for interfaces
+    types: './src/types', // your location for types
+  });
+};
+```
+
+Now just test and use as needed.
+```shell
+$    npm run artisan
+
+// or
+
+$    yarn artisan
+```
+
+If you don't want to customize your settings and control the plop command, you can simply call the program directly by configuring it like this:
+
+```json
+{
+  "scripts": {
+    "artisan": "npx @gaignoux/frontend-artisan generate"
+  }
+} 
+```
+
+And now you can run the previous step that will work in a similar way, but always asking which path you want to create the files.
 
 * Dependencies
   * [inquirer](https://github.com/SBoudrias/Inquirer.js#readme)
@@ -59,8 +105,6 @@ Please follow jest test struct. That's the only requirement.
 
 If you found something wrong or witch could be better, fell free to send your pull request for master branch.
 The package is public but please keep the order.
-
-* Other guidelines
 
 ### Who do I talk to? ###
 
