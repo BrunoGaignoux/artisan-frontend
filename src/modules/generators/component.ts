@@ -5,7 +5,7 @@ export default (plop: NodePlopAPI) => {
     description: 'Create your react component',
     prompts: [
       {
-        type: 'select',
+        type: 'list',
         name: 'propType',
         message:
           'Do you want your component to be created with type or interface?',
@@ -36,7 +36,7 @@ export default (plop: NodePlopAPI) => {
         message: 'What is your component name?',
       },
     ],
-    actions: function (answers) {
+    actions: function (answers: any) {
       const actions = [
         {
           type: 'add',
@@ -50,13 +50,13 @@ export default (plop: NodePlopAPI) => {
         },
       ];
 
-      if (answers.propType == 'interface') {
+      if (answers?.propType == 'interface') {
         actions.push({
           type: 'add',
           path: '{{> typePath }}/{{> componentTypeName }}.interface.ts',
           templateFile: './templates/interface.ts.hbs',
         });
-      } else if (answers.propType === 'type') {
+      } else if (answers?.propType === 'type') {
         actions.push({
           type: 'add',
           path: '{{> typePath }}/{{> componentTypeName }}.type.ts',

@@ -1,20 +1,12 @@
+import { NodePlopAPI } from 'plop';
 import helpers from '@modules/helpers';
 import prompts from '@modules/prompts';
 import partials from '@modules/partials';
-import {
-  api,
-  component,
-  context,
-  hoc,
-  hook,
-  interfaces,
-  styles,
-  type,
-} from '@modules/generators';
+import generators from '@modules/generators';
 
 export default (
   /** @type {import('plop').NodePlopAPI} */
-  plop,
+  plop: NodePlopAPI,
 ): void => {
   /* set prompts for scripts */
   prompts(plop);
@@ -23,12 +15,12 @@ export default (
   /* set partials for scripts */
   partials(plop);
   /* run generators */
-  api(plop);
-  component(plop);
-  context(plop);
-  hoc(plop);
-  hook(plop);
-  interfaces(plop);
-  styles(plop);
-  type(plop);
+  generators.api(plop);
+  generators.component(plop);
+  generators.context(plop);
+  generators.hoc(plop);
+  generators.hook(plop);
+  generators.interfaces(plop);
+  generators.styles(plop);
+  generators.types(plop);
 };

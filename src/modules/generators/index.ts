@@ -5,9 +5,9 @@ import hoc from '@generators/hoc';
 import hook from '@generators/hook';
 import interfaces from '@generators/interface';
 import styles from '@generators/styles';
-import type from '@generators/type';
+import types from '@generators/type';
 
-module.exports = {
+export default {
   api,
   component,
   context,
@@ -15,5 +15,5 @@ module.exports = {
   hook,
   interfaces,
   styles,
-  type,
+  types,
 };
