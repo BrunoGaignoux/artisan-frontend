@@ -1,7 +1,4 @@
-import { Answers } from 'inquirer';
-import { NodePlopAPI } from 'plop';
-
-const questions = (path?: string) => {
+const questions = (path) => {
   const value = [
     {
       type: 'list',
@@ -43,18 +40,19 @@ const questions = (path?: string) => {
   return value;
 };
 
-export default (
-  plop: NodePlopAPI,
-  typePath?: string,
-  componentPath?: string,
+module.exports = (
+  plop,
+  typePath,
+  componentPath,
 ) => {
   plop.setGenerator('component', {
     description: 'Create your react component',
     prompts: questions(typePath),
-    actions: function (answers?: Answers) {
+    actions: function (answers) {
       const data = { componentPath, typePath };
       const component = componentPath ?? '{{> componentPath }}';
       const type = typePath ?? '{{> typePath }}';
+      console.log(data);
 
       const actions = [
         {

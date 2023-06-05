@@ -1,6 +1,4 @@
-import { NodePlopAPI } from 'plop';
-
-export default (plop: NodePlopAPI, path?: string) => {
+module.exports = (plop, path) => {
   const data = { componentPath: path };
   const component = path ?? '{{> componentPath }}';
   const prompts = [];

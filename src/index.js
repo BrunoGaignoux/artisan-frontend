@@ -1,16 +1,14 @@
 require('module-alias/register');
-import { NodePlopAPI } from 'plop';
-import helpers from '@modules/helpers';
-import prompts from '@modules/prompts';
-import partials from '@modules/partials';
-import generators from '@modules/generators';
-import { ConfigPaths } from '@base/types';
+const helpers = require('@modules/helpers');
+const prompts = require('@modules/prompts');
+const partials = require('@modules/partials');
+const generators = require('@modules/generators');
 
-export default (
+module.exports = (
   /** @type {import('plop').NodePlopAPI} */
-  plop: NodePlopAPI,
-  paths?: ConfigPaths,
-): void => {
+  plop,
+  paths,
+) => {
   /* set prompts for scripts */
   prompts(plop);
   /* set helpers for scripts */

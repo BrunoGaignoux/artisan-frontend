@@ -1,6 +1,4 @@
-import { NodePlopAPI } from 'plop';
-
-const questions = (type?: string, path?: string) => {
+const questions = (type, path) => {
   const prompts = [];
 
   if (!type) {
@@ -28,7 +26,7 @@ const questions = (type?: string, path?: string) => {
   return prompts;
 };
 
-export default (plop: NodePlopAPI, typePath?: string, hocPath?: string) => {
+module.exports = (plop, typePath, hocPath) => {
   const data = { hocPath, typePath };
   const hoc = hocPath ?? '{{> hocPath }}';
   const type = typePath ?? '{{> typePath }}';

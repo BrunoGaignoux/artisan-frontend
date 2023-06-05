@@ -1,6 +1,6 @@
-import { NodePlopAPI } from 'plop';
+'use strict';
 
-export default (plop: NodePlopAPI) => {
+module.exports = (plop) => {
   plop.setPartial('typePath', '{{ sourcecase type }}');
   plop.setPartial('name', '{{ properCase name }}');
 

@@ -1,13 +1,13 @@
-import { NodePlopAPI } from 'plop';
+'use strict';
 
-const formatPascalCase = (value: string) =>
+const formatPascalCase = (value) =>
   value.replace(
     /(\w)(\w*)/g,
     (g0, g1, g2) => g1.toUpperCase() + g2.toLowerCase(),
   );
 
-export default (plop: NodePlopAPI) => {
-  plop.setHelper('PascalCase', (text: string): string => {
+module.exports = (plop) => {
+  plop.setHelper('PascalCase', (text) => {
     if (text.includes(' ')) {
       const values = text.split(' ');
       let word = '';
@@ -21,7 +21,7 @@ export default (plop: NodePlopAPI) => {
 
     return formatPascalCase(text);
   });
-  plop.setHelper('sourcecase', (source: string): string =>
+  plop.setHelper('sourcecase', (source) =>
     source
       .split('/')
       .filter((n) => n)
