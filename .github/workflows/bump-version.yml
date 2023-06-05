@@ -1,6 +1,8 @@
 name: Bump version
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - master
 jobs:
@@ -15,3 +17,4 @@ jobs:
         uses: mathieudutour/github-tag-action@v4.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true

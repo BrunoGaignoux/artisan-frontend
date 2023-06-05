@@ -23,7 +23,7 @@ module.exports = (plop, path) => {
     actions: [
       {
         type: 'add',
-        path: `${type}/{{> interfaceTypeName }}.ts`,
+        path: `${type}/{{> interfaceTypeName }}.interface.ts`,
         templateFile: './templates/interface.ts.hbs',
         data,
       },

@@ -19,14 +19,14 @@ const questions = (path) => {
     {
       type: 'input',
       name: 'type',
-      message: 'What is your {{> propType }} path?',
+      message: 'What is the path of your previous choice?',
     },
   ];
 
   if (!path) {
     value.push({
       type: 'input',
-      name: 'typePath',
+      name: 'path',
       message: 'What is your component path?',
     });
   }
@@ -40,19 +40,17 @@ const questions = (path) => {
   return value;
 };
 
-module.exports = (
-  plop,
-  typePath,
-  componentPath,
-) => {
+module.exports = (plop, typePath, componentPath) => {
   plop.setGenerator('component', {
     description: 'Create your react component',
     prompts: questions(typePath),
     actions: function (answers) {
-      const data = { componentPath, typePath };
+      const data = {
+        componentPath: componentPath ?? answers?.path,
+        typePath: typePath ?? answers?.type,
+      };
       const component = componentPath ?? '{{> componentPath }}';
       const type = typePath ?? '{{> typePath }}';
-      console.log(data);
 
       const actions = [
         {

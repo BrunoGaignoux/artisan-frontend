@@ -43,8 +43,8 @@ module.exports = (plop, typePath, hocPath) => {
       },
       {
         type: 'add',
-        path: `${type}/{{> hocTypeName }}.interface.ts`,
-        templateFile: './templates/interface.ts.hbs',
+        path: `${type}/{{> hocTypeName }}.type.ts`,
+        templateFile: './templates/type.ts.hbs',
         data,
       },
     ],
