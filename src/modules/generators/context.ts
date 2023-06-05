@@ -1,35 +1,57 @@
 import { NodePlopAPI } from 'plop';
 
-export default (plop: NodePlopAPI, typePath?: string, contextPath?: string) => {
+const questions = (type?: string, path?: string) => {
+  const prompts = [];
+
+  if (!type) {
+    prompts.push({
+      type: 'input',
+      name: 'type',
+      message: 'What is your interface path?',
+    });
+  }
+
+  if (!path) {
+    prompts.push({
+      type: 'input',
+      name: 'context_path',
+      message: 'What is your context path?',
+    });
+  }
+
+  prompts.push({
+    type: 'input',
+    name: 'name',
+    message: 'What is your context name?',
+  });
+
+  return prompts;
+};
+
+export default (
+  plop: NodePlopAPI,
+  interfacePath?: string,
+  contextPath?: string,
+) => {
+  const data = { contextPath, typePath: interfacePath };
+  const context = contextPath ?? '{{> contextPath }}';
+  const type = interfacePath ?? '{{> typePath }}';
+
   plop.setGenerator('context', {
     description: 'Create your react context',
-    prompts: [
-      {
-        type: 'input',
-        name: 'type',
-        message: 'What is your interface path?',
-      },
-      {
-        type: 'input',
-        name: 'context_path',
-        message: 'What is your context path?',
-      },
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What is your context name?',
-      },
-    ],
+    prompts: questions(interfacePath, contextPath),
     actions: [
       {
         type: 'add',
-        path: '{{> contextPath }}/{{> contextTypeName }}.ts',
+        path: `${context}/{{> contextTypeName }}.ts`,
         templateFile: './templates/context.tsx.hbs',
+        data,
       },
       {
         type: 'add',
-        path: '{{> typePath }}/{{> contextTypeName }}.interface.ts',
+        path: `${type}/{{> contextTypeName }}.interface.ts`,
         templateFile: './templates/interface.ts.hbs',
+        data,
       },
     ],
   });

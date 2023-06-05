@@ -52,6 +52,7 @@ export default (
     description: 'Create your react component',
     prompts: questions(typePath),
     actions: function (answers?: Answers) {
+      const data = { componentPath, typePath };
       const component = componentPath ?? '{{> componentPath }}';
       const type = typePath ?? '{{> typePath }}';
 
@@ -60,11 +61,13 @@ export default (
           type: 'add',
           path: `${component}/{{> name }}/{{> name }}.tsx`,
           templateFile: './templates/component.tsx.hbs',
+          data,
         },
         {
           type: 'add',
           path: `${component}/{{> name }}/{{> name }}.styles.tsx`,
           templateFile: './templates/styles.tsx.hbs',
+          data,
         },
       ];
 
@@ -73,12 +76,14 @@ export default (
           type: 'add',
           path: `${type}/{{> componentTypeName }}.interface.ts`,
           templateFile: './templates/interface.ts.hbs',
+          data,
         });
       } else if (answers?.propType === 'type') {
         actions.push({
           type: 'add',
           path: `${type}/{{> componentTypeName }}.type.ts`,
           templateFile: './templates/type.ts.hbs',
+          data,
         });
       }
 

@@ -1,3 +1,4 @@
+require('module-alias/register');
 import { NodePlopAPI } from 'plop';
 import helpers from '@modules/helpers';
 import prompts from '@modules/prompts';
@@ -19,9 +20,9 @@ export default (
   /* run generators */
   generators.api(plop);
   generators.component(plop, paths?.types, paths?.components);
-  generators.context(plop, paths?.types, paths?.contexts);
+  generators.context(plop, paths?.interfaces, paths?.contexts);
   generators.hoc(plop, paths?.types, paths?.hocs);
-  generators.hook(plop, paths?.types, paths?.hooks);
+  generators.hook(plop, paths?.interfaces, paths?.hooks);
   generators.interfaces(plop, paths?.interfaces);
   generators.styles(plop, paths?.components);
   generators.types(plop, paths?.types);

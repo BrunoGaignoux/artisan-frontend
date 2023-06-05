@@ -13,16 +13,19 @@
         "typeRoots": [
             "./node_modules/@types",
         ],
-        "baseUrl": ".",
+        "baseUrl": "./src",
         "paths": {
             "@modules/*": [
-                "./src/modules/*"
+                "modules/*"
             ],
             "@base/*": [
-                "./src/*"
+                "*"
             ],
             "@generators/*": [
-                "./src/modules/generators/*"
+                "modules/generators/*"
+            ],
+            "@templates/*": [
+                "templates/*"
             ],
         },
     },
@@ -30,7 +33,7 @@
         "ES2020"
     ],
     "include": [
-        "src"
+        "./src"
     ],
     "exclude": [
         "./node_modules",

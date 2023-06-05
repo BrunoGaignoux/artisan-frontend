@@ -3,15 +3,15 @@
   "name": "@gaignoux/frontend-artisan",
   "version": "0.0.0",
   "description": "Artisan frontend generator base on plop",
-  "main": "./dist/artisan.js",
-  "module": "./dist/artisan.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "packageScope": "@gaignoux",
   "scripts": {
-    "artisan:test": "npm run build ; plop --plopfile ./dist/artisan.js",
+    "artisan:test": "npm run build ; plop --plopfile ./dist/index.js",
     "lint": "eslint --ext .js,.ts . --fix",
     "type-check": "tsc --noEmit",
-    "build": "tsc",
+    "build": "tsc && npm run copyunbuildedfiles",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "test": "jest --config jestconfig.json",
     "prepare": "npm run build",
@@ -21,10 +21,12 @@
     "postversion": "git push && git push --tags",
     "publish:patch": "npm version patch && npm publish",
     "publish:minor": "npm version minor && npm publish",
-    "publish:major": "npm version major && npm publish"
+    "publish:major": "npm version major && npm publish",
+    "clean": "rimraf dist/",
+    "copyunbuildedfiles": "copyfiles -u 1 src/**/*.hbs dist/ && copyfiles -a ./README.md ./package.json ./LICENSE dist/"
   },
   "bin": {
-    "generate": "plop --plopfile ./dist/artisan.js"
+    "generate": "plop --plopfile index.js"
   },
   "repository": {
     "type": "git",
@@ -44,29 +46,48 @@
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
+  "_moduleAliases": {
+    "@root": ".",
+    "@modules/helpers": "src/modules/helpers.js",
+    "@modules/prompts": "src/modules/prompts.js",
+    "@modules/partials": "src/modules/partials.js",
+    "@modules/generators": "src/modules/generators/index.js",
+    "@generators/api": "src/modules/generators/api.js",
+    "@generators/component": "src/modules/generators/component.js",
+    "@generators/context": "src/modules/generators/context.js",
+    "@generators/hoc": "src/modules/generators/hoc.js",
+    "@generators/hook": "src/modules/generators/hook.js",
+    "@generators/interfaces": "src/modules/generators/interfaces.js",
+    "@generators/styles": "src/modules/generators/styles.js",
+    "@generators/type": "src/modules/generators/type.js",
+    "@base/types": "src/types/index.js"
+  },
   "dependencies": {
     "inquirer": "^9.2.0",
     "minimist": "^1.2.8",
+    "module-alias": "^2.2.3",
     "plop": "^3.1.2"
   },
   "devDependencies": {
+    "@types/inquirer": "^9.0.3",
     "@types/jest": "^29.5.1",
     "@types/node": "^18.16.3",
-    "@types/inquirer": "^9.0.3",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^6.0.3",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^29.5.0",
-    "ts-jest": "^29.1.0",
-    "typescript": "^5.0.4",
     "prettier": "^2.8.8",
-    "cross-env": "^6.0.3",
-    "ts-node": "^10.9.1",
+    "rimraf": "^5.0.1",
+    "ts-jest": "^29.1.0",
     "ts-loader": "^9.2.8",
+    "ts-node": "^10.9.1",
     "tsc-alias": "^1.6.6",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^5.0.4",
     "webpack": "^5.72.1"
   },
   "files": [

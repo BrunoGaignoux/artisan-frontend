@@ -1,35 +1,57 @@
 import { NodePlopAPI } from 'plop';
 
-export default (plop: NodePlopAPI, typePath?: string, hookPath?: string) => {
+const questions = (type?: string, path?: string) => {
+  const prompts = [];
+
+  if (!type) {
+    prompts.push({
+      type: 'input',
+      name: 'type',
+      message: 'What is your interface path?',
+    });
+  }
+
+  if (!path) {
+    prompts.push({
+      type: 'input',
+      name: 'hook_path',
+      message: 'What is your hook path?',
+    });
+  }
+
+  prompts.push({
+    type: 'input',
+    name: 'name',
+    message: 'What is your hook name?',
+  });
+
+  return prompts;
+};
+
+export default (
+  plop: NodePlopAPI,
+  interfacePath?: string,
+  hookPath?: string,
+) => {
+  const data = { hookPath, typePath: interfacePath };
+  const hook = hookPath ?? '{{> hookPath }}';
+  const type = interfacePath ?? '{{> typePath }}';
+
   plop.setGenerator('hook', {
     description: 'Create your react hook',
-    prompts: [
-      {
-        type: 'input',
-        name: 'type',
-        message: 'What is your interface path?',
-      },
-      {
-        type: 'input',
-        name: 'hook_path',
-        message: 'What is your hook path?',
-      },
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What is your hook name?',
-      },
-    ],
+    prompts: questions(interfacePath, hookPath),
     actions: [
       {
         type: 'add',
-        path: '{{> hookPath }}/{{> hookTypeName }}.ts',
+        path: `${hook}/{{> hookTypeName }}.ts`,
         templateFile: './templates/hook.tsx.hbs',
+        data,
       },
       {
         type: 'add',
-        path: '{{> typePath }}/{{> hookTypeName }}.interface.ts',
+        path: `${type}/{{> hookTypeName }}.interface.ts`,
         templateFile: './templates/interface.ts.hbs',
+        data,
       },
     ],
   });
