@@ -82,8 +82,6 @@ And now you can run the previous step that will work in a similar way, but alway
 * Dependencies
   * [inquirer](https://github.com/SBoudrias/Inquirer.js#readme)
   * [plop](https://plopjs.com/)
-  * [ts-node](https://typestrong.org/ts-node)
-  * [typescript](https://www.typescriptlang.org/)
 
 * How to run tests
 
