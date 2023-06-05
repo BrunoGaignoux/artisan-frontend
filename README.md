@@ -9,7 +9,7 @@ Frontend Artisan is a react typescript generator to assist in various projects.
 It is available to support your development by making commands to auto generate api | components | types | interfaces | hooks | context | hoc.
 Initially the idea was to help new and even more experienced developers to speed up daily development. Removing the need to manually create files that will often have standard structures.
 
-* Version [0.0.1](https://github.com/gaignoux/artisan-frontend/tags#0.0.1)
+* Version [0.0.1](https://github.com/gaignoux/frontend-artisan/tags#0.0.1)
 
 ### How do I get set up? ###
 

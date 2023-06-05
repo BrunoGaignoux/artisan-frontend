@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:gaignoux/artisan-frontend.git"
+    "url": "git@github.com:gaignoux/frontend-artisan.git"
   },
   "keywords": [
     "artisan",
@@ -35,9 +35,9 @@
   ],
   "author": "Bruno Gaignoux <gaignoux@gmail.com>",
   "license": "ISC",
-  "homepage": "https://github.com/gaignoux/artisan-frontend#readme",
+  "homepage": "https://github.com/gaignoux/frontend-artisan#readme",
   "bugs": {
-    "url": "https://github.com/gaignoux/artisan-frontend/issues"
+    "url": "https://github.com/gaignoux/frontend-artisan/issues"
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
