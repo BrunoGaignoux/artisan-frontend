@@ -1,6 +1,6 @@
 {
   "name": "@gaignoux/frontend-artisan",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Artisan frontend generator base on plop",
   "main": "index.js",
   "packageScope": "@gaignoux",
