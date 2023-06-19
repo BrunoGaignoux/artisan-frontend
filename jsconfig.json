@@ -19,7 +19,8 @@
     "include": [
         "src/**/*.d.ts",
         "src/**/*.js",
-        "src/**/*.svelte"
+        "src/**/*.svelte",
+        "*.js"
     ],
     "exclude": [
         "node_modules",
