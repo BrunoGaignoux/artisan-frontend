@@ -28,7 +28,7 @@ Create a plofile.js at the root of your project
 ```js
 module.exports = function (plop) {
 	// Here you will load artisan to plop instance
-  plop.load('frontend-artisan');
+  plop.load('@gaignoux/frontend-artisan');
 };
 ```
 
@@ -47,7 +47,7 @@ You can set your own paths as the default setting, so the craftsman doesn't ask 
 ```js
 module.exports = function (plop) {
   // Here you will load artisan to plop instance
-  plop.load('frontend-artisan', {
+  plop.load('@gaignoux/frontend-artisan', {
     components: './src/components', // your location for components
     contexts: './src/contexts', // your location for contexts
     hocs: './src/hocs', // your location for hocs
