@@ -23,7 +23,7 @@ $    npm i --save-dev @gaignoux/frontend-artisan plop
 
 * Configuration
 
-Create a artisan.js at the root of your project
+Create a plofile.js at the root of your project
 
 ```js
 module.exports = function (plop) {
@@ -37,7 +37,7 @@ Now you will need to put into your `package.json` file, a script to run every ti
 ```json
 {
   "scripts": {
-    "artisan": "plop --plofile artisan.js"
+    "artisan": "plop --plofile plofile.js"
   }
 } 
 ```
